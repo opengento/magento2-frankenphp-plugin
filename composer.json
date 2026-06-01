@@ -1,0 +1,53 @@
+{
+    "name": "opengento/magento2-frankenphp-plugin",
+    "description": "Composer Plugin to map frankenphp base workers to Magento pub directory.",
+    "keywords": [
+        "php",
+        "magento",
+        "magento2",
+        "frankenphp",
+        "application",
+        "composer-plugin"
+    ],
+    "require": {
+        "composer-plugin-api": "^1.1 || ^2.0",
+        "composer/composer": "^1.9 || ^2.0",
+        "magento/magento-composer-installer": "*",
+        "opengento/magento2-frankenphp-base": "*"
+    },
+    "require-dev": {
+        "magento/magento-coding-standard": "^33",
+        "roave/security-advisories": "dev-latest"
+    },
+    "type": "composer-plugin",
+    "license": [
+        "MIT"
+    ],
+    "homepage": "https://github.com/opengento/magento2-frankenphp-plugin",
+    "authors": [
+        {
+            "name": "Opengento Team",
+            "email": "opengento@gmail.com",
+            "homepage": "https://opengento.fr/",
+            "role": "lead"
+        },
+        {
+            "name": "Thomas Klein",
+            "email": "thomaskein876@gmail.com",
+            "homepage": "https://www.linkedin.com/in/thomas-klein/",
+            "role": "maintainer"
+        }
+    ],
+    "support": {
+        "source": "https://github.com/opengento/magento2-frankenphp-plugin",
+        "issues": "https://github.com/opengento/magento2-frankenphp-plugin/issues"
+    },
+    "autoload": {
+        "psr-4": {
+            "Opengento\\FrankenPhpPlugin\\": "src/"
+        }
+    },
+    "extra": {
+        "class": "Opengento\\FrankenPhpBase\\Composer\\Plugin"
+    }
+}
