@@ -13,7 +13,6 @@
         "composer-plugin-api": "^1.1 || ^2.0",
         "composer/composer": "^1.9 || ^2.0",
         "magento/magento-composer-installer": "*",
-        "opengento/magento2-frankenphp-base": "*"
     },
     "require-dev": {
         "magento/magento-coding-standard": "^33",
