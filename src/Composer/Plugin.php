@@ -39,15 +39,9 @@ class Plugin implements PluginInterface, EventSubscriberInterface
         $this->installer->setConfig(new ProjectConfig($composer->getPackage()->getExtra()));
     }
 
-    public function deactivate(Composer $composer, IOInterface $io): void
-    {
-        // Silence is golden...
-    }
+    public function deactivate(Composer $composer, IOInterface $io): void {}
 
-    public function uninstall(Composer $composer, IOInterface $io): void
-    {
-        // Silence is golden...
-    }
+    public function uninstall(Composer $composer, IOInterface $io): void {}
 
     public static function getSubscribedEvents(): array
     {
