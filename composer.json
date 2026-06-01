@@ -48,6 +48,6 @@
         }
     },
     "extra": {
-        "class": "Opengento\\FrankenPhpBase\\Composer\\Plugin"
+        "class": "Opengento\\FrankenPhpPlugin\\Composer\\Plugin"
     }
 }
