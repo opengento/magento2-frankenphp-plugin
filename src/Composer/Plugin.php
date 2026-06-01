@@ -9,9 +9,9 @@ namespace Opengento\FrankenPhpPlugin\Composer;
 
 use Composer\Composer;
 use Composer\EventDispatcher\EventSubscriberInterface;
-use Composer\Installer\PackageEvents;
 use Composer\IO\IOInterface;
 use Composer\Plugin\PluginInterface;
+use Composer\Script\ScriptEvents;
 use ErrorException;
 use MagentoHackathon\Composer\Magento\Deploy\Manager\Entry;
 use MagentoHackathon\Composer\Magento\DeployManager;
@@ -46,12 +46,20 @@ class Plugin implements PluginInterface, EventSubscriberInterface
     public static function getSubscribedEvents(): array
     {
         return [
-            PackageEvents::POST_PACKAGE_INSTALL => ['deployFrankenPhpBase', 10],
-            PackageEvents::POST_PACKAGE_UPDATE => ['deployFrankenPhpBase', 10],
+            ScriptEvents::POST_INSTALL_CMD => ['deployFrankenPhpBase', 10],
+            ScriptEvents::POST_UPDATE_CMD => ['deployFrankenPhpBase', 10],
         ];
     }
 
     /**
+     * This plugin will redeploy the content of `opengento/magento2-frankenphp-base` wich is a magento2-component.
+     * The content of this package type is only updated to the Magento base if the package itself have been updated.
+     * So if the `magento/magento2-base` package is updated (likely at each Magento release) it will overrides the
+     * `opengento/magento2-frankenphp-base` specific entry points.
+     * We couldn't either use @see \MagentoHackathon\Composer\Magento\Command\DeployCommand because this script command
+     * only re-deploy extra map for the `magento2-module` package type.
+     *
+     * @see ComposerPlugin::getSubscribedEvents
      * @throws ErrorException
      */
     public function deployFrankenPhpBase(): void
